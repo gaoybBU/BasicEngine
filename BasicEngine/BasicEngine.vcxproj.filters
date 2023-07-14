@@ -27,7 +27,7 @@
     <ClInclude Include="src\BasicEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Log.h">
+    <ClInclude Include="src\Engine\ENG_Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="src\Engine\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Engine\Log.cpp">
+    <ClCompile Include="src\Engine\ENG_Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

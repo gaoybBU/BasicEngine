@@ -1,10 +1,10 @@
-#include "Log.h"
+#include "ENG_Log.h"
 
 namespace Engine {
-	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
-	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
+	std::shared_ptr<spdlog::logger> ENG_Log::s_CoreLogger;
+	std::shared_ptr<spdlog::logger> ENG_Log::s_ClientLogger;
 
-	void Log::Init() {
+	void ENG_Log::Init() {
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 		s_CoreLogger = spdlog::stdout_color_mt("ENGINE");
 		s_CoreLogger->set_level(spdlog::level::trace);
