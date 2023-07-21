@@ -101,6 +101,10 @@
     <ClInclude Include="src\Engine\ENG_Log.h" />
     <ClInclude Include="src\Engine\EntryPoint.h" />
     <ClInclude Include="src\Engine\Event\Event.h" />
+    <ClInclude Include="src\Engine\Event\EventApplication.h" />
+    <ClInclude Include="src\Engine\Event\EventKeyboard.h" />
+    <ClInclude Include="src\Engine\Event\EventWindow.h" />
+    <ClInclude Include="src\Engine\Event\EventMouse.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp" />
