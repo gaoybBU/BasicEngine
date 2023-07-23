@@ -6,16 +6,24 @@
 
 
 namespace Engine {
-    class EventKeyPressed : public Event {
+    class ENG_API EventKey : public Event {
     public:
-        inline int GetKeyCode() const { return m_keyCode; }
-        EVENT_TYPE(KeyPressed)
-        EVENT_CATEGORY(EventCategoryMouse | EventCategoryInput)
+        inline int GetKeyCode() const { return m_KeyCode; }
+        EVENT_CATEGORIES(EventCategoryMouse, EventCategoryInput)
     protected:
-        int m_keyCode;
+        EventKey(int keycode)
+            : m_KeyCode(keycode) {}
+        int m_KeyCode;
     };
 
-    class EventKeyReleased : public Event {
+    class ENG_API EventKeyPressed : public EventKey {
+    public:
+        EVENT_TYPE(KeyPressed)
 
+    };
+
+    class ENG_API EventKeyReleased : public EventKey {
+    public:
+        EVENT_TYPE(KeyReleased)
     };
 }

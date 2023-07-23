@@ -9,13 +9,18 @@
 //    EventCategoryWindow
 
 namespace Engine {
-    class ENG_API EventWindowClose : public Event {
+    class ENG_API EventWindow : public Event {
     public:
-        EVENT_TYPE(WindowClose)
-        EVENT_CATEGORY(EventCategoryWindow)
+        EVENT_CATEGORIES(EventCategoryWindow, None)
     };
 
-    class ENG_API EventWindowResize : public Event {
+    class ENG_API EventWindowClose : public EventWindow {
+    public:
+        EVENT_TYPE(WindowClose)
+        
+    };
+
+    class ENG_API EventWindowResize : public EventWindow {
     public:
         EventWindowResize(unsigned int width, unsigned int height)
             : m_Width(width), m_Height(height) {}
@@ -25,23 +30,19 @@ namespace Engine {
             ss << "Window Resize Event: width:" << m_Width << " height:" << m_Height;
         }
         EVENT_TYPE(WindowResize)
-        EVENT_CATEGORY(EventCategoryWindow)
     private:
         unsigned int m_Width, m_Height;
     };
 
-    class ENG_API EventWindowFocus: public Event{
+    class ENG_API EventWindowFocus: public EventWindow {
         EVENT_TYPE(WindowFocus)
-        EVENT_CATEGORY(EventCategoryWindow)
     };
 
-    class ENG_API EventWindowLostFocus : public Event{
+    class ENG_API EventWindowLostFocus : public EventWindow {
         EVENT_TYPE(WindowLostFocus)
-        EVENT_CATEGORY(EventCategoryWindow)
     };
 
-    class ENG_API EventWindowMoved : public Event{
+    class ENG_API EventWindowMoved : public EventWindow {
         EVENT_TYPE(WindowMoved)
-        EVENT_CATEGORY(EventCategoryWindow)
     };
 }

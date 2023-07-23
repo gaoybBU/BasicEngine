@@ -19,7 +19,7 @@ namespace Engine {
         None = 0,
         EventCategoryWindow = BIT(0),
         EventCategoryApp = BIT(1),
-        EventCategorboardyKey = BIT(2),
+        EventCategoryboardyKey = BIT(2),
         EventCategoryMouse = BIT(3),
         EventCategoryInput   = BIT(4)
     };
@@ -39,14 +39,31 @@ namespace Engine {
         bool m_isProtected = false;
     };
 
-    #define EVENT_TYPE(type) static EventType GetType() { return EventType::type; } \
+    #define EVENT_TYPE(type) static EventType GetStaticType() { return EventType::type; } \
                          EventType GetEventType() const override { return GetType(); } \
                          const char* GetName() const override { return #type; }
 
-    #define EVENT_CATEGORY(category) EventCategory GetEventCategory() const override { return EventCategory::category; };
+    #define EVENT_CATEGORIES(category1, category2) EventCategory GetEventCategory() const override \
+                        { return static_cast<EventCategory>(static_cast<int>(EventCategory::category1) | \
+                                                            static_cast<int>(EventCategory::category2)); };
 
-    class EventDispatecher {
-      
+    class EventDispatcher {
+        template<typename T>
+        using EventFunction = std::function<bool(T&)>
+    public:
+        EventDispatcher(Event& event)
+            : m_Event(event) {}
+
+        template<typename T>
+        bool Dispatch(EventFunction<T> func) {
+            if (m_Event.GetEventType() == T::GetStaticType()) {
+                m_Event.m_Handled = func(*(T*)&m_Event);
+                return true;
+            }
+            return false;
+        }
         
+    private:
+        Event& m_Event;
     };
 };
