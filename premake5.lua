@@ -5,6 +5,10 @@ workspace "BasicEngine"
         "Debug",
         "Release"
     }
+
+    filter "Debug"
+        defines {"_ASSERTION"}
+
     flags {
         "MultiProcessorCompile"
     }

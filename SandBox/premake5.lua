@@ -12,6 +12,7 @@ project "SandBox"
 
     includedirs {
         "../BasicEngine/external/spdlog/include",
+        "../BasicEngine/external/GLFW/include",
         "../BasicEngine/src"
     }
 

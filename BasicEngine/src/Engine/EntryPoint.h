@@ -9,9 +9,7 @@ extern Engine::Application* Engine::CreateApplication();
 
 int main() {
 	Engine::ENG_Log::Init();
-	Engine::ENG_Log::GetClientLogger()->info("Client Info");
-	Engine::ENG_Log::GetCoreLogger()->trace("Core Trace");
-	
+	ENG_INFO("test test");
 	auto application = Engine::CreateApplication();
 	application->Run();
 	delete application;

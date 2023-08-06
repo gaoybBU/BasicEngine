@@ -6,6 +6,9 @@ project "BasicEngine"
     targetdir("../bin/" ..outputdir.. "/%{prj.name}")
     objdir("../intermediate/" ..outputdir.. "/%{prj.name}")
     
+    -- pchheader "EnginePCH.h"
+    -- pchsource "src/EnginePCH.cpp"
+
     files {
         "src/**.cpp",
         "src/**.h"
@@ -13,8 +16,18 @@ project "BasicEngine"
     
     includedirs {
         "src",
-        "external/spdlog/include"
+        "external/spdlog/include",
+        "external/GLFW/include"
     }
+
+    libdirs{
+        "external/GLFW/lib-vc2022"
+    }
+
+    links {
+        "glfw3"
+    }
+
 
     filter "system:windows"
         systemversion "latest"

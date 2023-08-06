@@ -7,6 +7,12 @@
     <Filter Include="Engine\Event">
       <UniqueIdentifier>{6C812495-58E4-B339-016A-ECEFEDAB7FBC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BasicEngine.h" />
@@ -25,6 +31,25 @@
     <ClInclude Include="src\Engine\Event\Event.h">
       <Filter>Engine\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Event\EventApplication.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Event\EventKeyboard.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Event\EventMouse.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Event\EventWindow.h">
+      <Filter>Engine\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Window.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EnginePCH.h" />
+    <ClInclude Include="src\Platform\Windows\WindowWindows.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp">
@@ -32,6 +57,10 @@
     </ClCompile>
     <ClCompile Include="src\Engine\ENG_Log.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnginePCH.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowWindows.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
